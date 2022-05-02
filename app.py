@@ -437,6 +437,12 @@ def questionResponse(current_user):
         res = 'question not found'
     db.session.commit()
     return make_response({'result': res})
+# this is to catch all the stray requests
+
+
+@app.route('*')
+def not_valid():
+    return make_response({'error': 'not a valid route'})
 
 
 if __name__ == '__main__':
