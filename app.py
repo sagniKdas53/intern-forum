@@ -28,10 +28,7 @@ popularity_lim = 1
 # change this to change filtering on popularity
 # the flask app is initialized here as the configurations are set
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://ctsbvjgtogsxoz:\
-                                        46fb3b39855994d7ad5da1e45d95c71571553d07708\
-                                        a0c893b2257917a2ffcec@ec2-3-231-82-226.\
-                                        compute-1.amazonaws.com:5432/d3pdm0hkadu8si"
+app.config['SQLALCHEMY_DATABASE_URI'] = "postgresql://ctsbvjgtogsxoz:46fb3b39855994d7ad5da1e45d95c71571553d07708a0c893b2257917a2ffcec@ec2-3-231-82-226.compute-1.amazonaws.com:5432/d3pdm0hkadu8si"
 app.config['SECRET_KEY'] = "1b308e20a6f3193e43c021bb1412808f"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
@@ -152,6 +149,13 @@ def token_required(f):
 
 # admin routes, mostly signup login and monitoring
 # the admin data type is a boolean so the frontend should only send integers 0 or 1 to be converted to bools
+
+# this is to catch all the stray requests
+
+
+@app.route('*')
+def not_valid():
+    return make_response({'error': 'not a valid route'})
 
 
 @app.route('/api/auth/register', methods=['POST'])
@@ -437,12 +441,6 @@ def questionResponse(current_user):
         res = 'question not found'
     db.session.commit()
     return make_response({'result': res})
-# this is to catch all the stray requests
-
-
-@app.route('*')
-def not_valid():
-    return make_response({'error': 'not a valid route'})
 
 
 if __name__ == '__main__':
