@@ -1,0 +1,9 @@
+flask==2.1.0
+pyjwt==2.0.0
+datetime
+uuid
+Flask-SQLAlchemy
+flask-cors
+gunicorn
+password-validator
+gunicorn== 19.9.0
