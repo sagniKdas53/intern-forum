@@ -1,0 +1,118 @@
+{
+  "register": [
+    {
+      "username": "siva",
+      "name": "Shiv A",
+      "password": "Jk2WLCd%S's,",
+      "email": "shiva@wipro.com"
+    },
+    {
+      "username": "PrabuK",
+      "name": "Prabu K",
+      "password": "3+vxDzC!kQr2",
+      "email": "prabu@wipro.com"
+    },
+    {
+      "username": "Sagnik",
+      "name": "Sagnik Das",
+      "password": "Jk2WLCd%S's,",
+      "email": "sagnikD@wipro.com"
+    },
+    {
+      "username": "Joshva",
+      "name": "Joshva A",
+      "password": "v+3b~YVGPdzN",
+      "email": "joshvaA@wipro.com"
+    },
+    {
+      "username": "Shivaganesh",
+      "name": "Shivaganesh M",
+      "password": "Bx<4(98d$APr",
+      "email": "shivaganeshM@wipro.com"
+    },{
+      "username": "ShrutiBhardwaj@wipro.com",
+      "name": "ShrutiBhardwaj@wipro.com",
+      "password": "rEGMsBj3KAkJMiF",
+      "email": "shrutiBhardwaj@wipro.com"
+    }
+  ],
+
+  "login": [
+    {
+      "credit": 0,
+      "email": "SagnikD@wipro.com",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjdmNzM4ZjZjLWM3OTEtNGY5Yy04NGI0LWE0ZGZlOThlYjM2NSIsImV4cCI6MTY1MTQ5NTgzNX0.R5lFVYQQ5Q1vDT_EWh_JY1VjWlDep8g_RlUSnoS3VYE",
+      "username": "Sagnik"
+    },
+    {
+      "credit": 0,
+      "email": "ShivaganeshM@wipro.com",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6IjU2NmE5YTU5LTQxMzItNGJmMi1iMDYzLTU5YzNiNjAzN2E5NyIsImV4cCI6MTY1MTQ5NjEzNn0.-zpxQMphpNMVFHZU1GEW58BdcN01GURlGeeoPUqzOxg",
+      "username": "Shivaganesh"
+    },
+    {
+      "credit": 0,
+      "email": "JoshvaA@wipro.com",
+      "token": "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpZCI6ImM0Zjc1OGJlLWJkM2EtNGQ0Yy04MDY2LWY5YTE1OWIzNGY0ZiIsImV4cCI6MTY1MTQ5NjM3NX0.mtoHRe_zsF_qjZvO_7qMkcik-ZVkDy2DmGzQphtWbvg",
+      "username": "Joshva"
+    }
+  ],
+  "SagnikQuestions": [
+    {
+      "question": "what is the duration of the internship?",
+      "questionid": "d3a14375-3326-4e5c-a72f-7c298a874d87"
+    },
+    {
+      "question": "Some of the member on our team have been onboarded, can we get replacement members?",
+      "questionid": "c616d430-3b21-48e1-9f76-b208152f3693"
+    },
+    {
+      "question": "How many projects will we need to do in the internship?",
+      "questionid": "937e2aa2-f733-48a6-980c-17116289a23d"
+    },
+    {
+      "question": "When will the assessment be taken?",
+      "questionid": "d775826d-f4d3-45bf-a7a0-034ddd9004d8"
+    }
+  ],
+  "ShivaganeshQuestions": [
+    {
+      "question": "What is the completion necessary for appearing in the assessment?",
+      "questionid": "ffdba60b-1736-4fed-8001-0685384d49af"
+    },
+    {
+      "question": "Can I get help for personal questions here?",
+      "questionid": "02bff6c6-45f3-4853-935a-f90c8a5f76ce"
+    },
+    {
+      "question": "Can we share the answers to our friends?",
+      "questionid": "7fa20df2-60f2-4863-b6b4-1d2d1a9a7ad0"
+    },
+    {
+      "question": "What will happen if we get onborded bfore the intership ends?",
+      "questionid": "6731c65b-8df6-4768-bc7b-b81719a085a2"
+    }
+  ],
+  "JoshvaQuestions": [
+    {
+      "question": "What will happen if we can't finish the project bfore the intership ends?",
+      "questionid": "7b5b2549-be3c-434e-966e-d8ea2d3c0d89"
+    },
+    {
+      "question": "Will out project affect the projects we are assigned in our workplace?",
+      "questionid": "ace0082e-5b86-4369-a91c-e4d6f164b347"
+    },
+    {
+      "question": "Can we get the contact number of our metor?",
+      "questionid": "254ee3d6-b5cc-4c58-9773-671bb48891be"
+    },
+    {
+      "question": "Is it mandetory to do a project?",
+      "questionid": "21d129f7-f513-4e8f-9c9b-408bbd08a6f2"
+    }
+  ],
+  "JoshvaAnswers": [
+    { "answer_id": "fd03a4dd-d94e-4fb0-9bbb-d9225598044d" },
+    { "answer_id": "75cfe8e5-201b-4823-b0fc-64355cc6eb05" }
+  ]
+}
