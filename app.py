@@ -27,13 +27,11 @@ from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
 
-deployment = ['sqlite:///database2.sqlite3',
-              "postgresql://ctsbvjgtogsxoz:46fb3b39855994d7ad5da1e45d95c71571553d07708a0c893b2257917a2ffcec@ec2-3-231-82-226.compute-1.amazonaws.com:5432/d3pdm0hkadu8si"]
 popularity_lim = 1
 # change this to change filtering on popularity
 # the flask app is initialized here as the configurations are set
 app = Flask(__name__, static_folder='build')
-app.config['SQLALCHEMY_DATABASE_URI'] = deployment[0]
+app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['DATABASE_URL']
 app.config['SECRET_KEY'] = "1b308e20a6f3193e43c021bb1412808f"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
