@@ -32,7 +32,7 @@ deployment = ['sqlite:///database2.sqlite3',
 popularity_lim = 1
 # change this to change filtering on popularity
 # the flask app is initialized here as the configurations are set
-app = Flask(__name__)
+app = Flask(__name__, static_folder='build')
 app.config['SQLALCHEMY_DATABASE_URI'] = deployment[0]
 app.config['SECRET_KEY'] = "1b308e20a6f3193e43c021bb1412808f"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
