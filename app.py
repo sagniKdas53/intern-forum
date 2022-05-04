@@ -46,7 +46,7 @@ class user_db(db.Model):
     email = db.Column(db.String(100))
     username = db.Column(db.String(200))
     password = db.Column(db.String(200))
-    credit = db.Column(db.Integer())
+    credit = db.Column(db.Integer)
 
     def __repr__(self):
         return f'User Name: {self.username}\nEmail: {self.email}\
@@ -106,7 +106,7 @@ class question_responses(db.Model):
     time = db.Column(db.DateTime, primary_key=True)
     question_id = db.Column(db.String(200), db.ForeignKey('questions_db.id'))
     user_id = db.Column(db.String(200), db.ForeignKey('user_db.id'))
-    response = db.Column(db.Boolean())
+    response = db.Column(db.Boolean)
 
     def __repr__(self):
         if self.response == True:
