@@ -120,7 +120,8 @@ class question_responses(db.Model):
         return f'Question ID: {self.question_id} \
                 is {resp} by {self.user_id} at {self.time}'
 
-    def __init__(self, response, user, question, time):
+    def __init__(self, id, response, user, question, time):
+        self.id = id
         self.time = time
         self.response = response
         self.user_id = user
