@@ -16,10 +16,11 @@ Shruti Govindalwar
 """
 import datetime
 import uuid
+import os
 from functools import wraps
 
 import jwt
-from flask import Flask, make_response, request
+from flask import Flask, make_response, request, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
@@ -28,7 +29,7 @@ deployment = ['sqlite:///database2.sqlite3',
 popularity_lim = 1
 # change this to change filtering on popularity
 # the flask app is initialized here as the configurations are set
-app = Flask(__name__)
+app = Flask(__name__, static_folder='build')
 # "sqlite:///database2.sqlite3"
 app.config['SQLALCHEMY_DATABASE_URI'] = deployment[0]
 app.config['SECRET_KEY'] = "1b308e20a6f3193e43c021bb1412808f"
@@ -157,8 +158,11 @@ def token_required(f):
 
 @app.route('/', defaults={'path': ''})
 @app.route('/<path:path>')
-def catch_all(path):
-    return make_response({'error': 'not a valid route'})
+def serve(path):
+    if path != "" and os.path.exists(app.static_folder + '/' + path):
+        return send_from_directory(app.static_folder, path)
+    else:
+        return send_from_directory(app.static_folder, 'index.html')
 
 
 @app.route('/api/auth/register', methods=['POST'])
