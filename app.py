@@ -18,6 +18,7 @@ Shruti Govindalwar
 
 import datetime
 import os
+import secrets
 import uuid
 from functools import wraps
 
@@ -26,12 +27,13 @@ from flask import Flask, make_response, request, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
+
 popularity_lim = 1
 # change this to change filtering on popularity
 # the flask app is initialized here as the configurations are set
 app = Flask(__name__, static_folder='build')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['URI']
-app.config['SECRET_KEY'] = "1b308e20a6f3193e43c021bb1412808f"
+app.config['SECRET_KEY'] = secrets.token_hex(15)
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
@@ -103,7 +105,8 @@ class answers_db(db.Model):
 
 
 class question_responses(db.Model):
-    time = db.Column(db.DateTime, primary_key=True)
+    id = db.Column(db.String(200), primary_key=True)
+    time = db.Column(db.DateTime)
     question_id = db.Column(db.String(200), db.ForeignKey('questions_db.id'))
     user_id = db.Column(db.String(200), db.ForeignKey('user_db.id'))
     response = db.Column(db.Boolean)
@@ -433,7 +436,7 @@ def questionResponse(current_user):
                                                question_responses.user_id == current_user.id).first()
         if not resp:
             # liking or disliking for the first time
-            newResp = question_responses(time=datetime.datetime.now(),
+            newResp = question_responses(time=datetime.datetime.now(), id=str(uuid.uuid4()),
                                          user=current_user.id, question=data['question_id'],
                                          response=bool(data['response']))
             if bool(data['response']):
