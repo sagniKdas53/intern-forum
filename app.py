@@ -13,10 +13,12 @@ Tirupathi Reddy Devagiri
 Neetha Jyothi Simhadri
 Ashwin Mahendra Gawande
 Shruti Govindalwar
+
 """
+
 import datetime
-import uuid
 import os
+import uuid
 from functools import wraps
 
 import jwt
@@ -24,13 +26,13 @@ from flask import Flask, make_response, request, send_from_directory
 from flask_cors import CORS
 from flask_sqlalchemy import SQLAlchemy
 from werkzeug.security import check_password_hash, generate_password_hash
+
 deployment = ['sqlite:///database2.sqlite3',
               "postgresql://ctsbvjgtogsxoz:46fb3b39855994d7ad5da1e45d95c71571553d07708a0c893b2257917a2ffcec@ec2-3-231-82-226.compute-1.amazonaws.com:5432/d3pdm0hkadu8si"]
 popularity_lim = 1
 # change this to change filtering on popularity
 # the flask app is initialized here as the configurations are set
-app = Flask(__name__, static_folder='build')
-# "sqlite:///database2.sqlite3"
+app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = deployment[0]
 app.config['SECRET_KEY'] = "1b308e20a6f3193e43c021bb1412808f"
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
@@ -128,9 +130,9 @@ class question_responses(db.Model):
 
 db.create_all()
 
+
 # this is the JWT checker, this token is used to make the user stay signed in
 # in the front end, the token has the user id and the expiry embedded into it.
-
 
 def token_required(f):
     @wraps(f)
@@ -150,10 +152,7 @@ def token_required(f):
         return f(current_user, *args, **kwargs)
     return decorator
 
-# admin routes, mostly signup login and monitoring
-# the admin data type is a boolean so the frontend should only send integers 0 or 1 to be converted to bools
-
-# this is to catch all the stray requests
+# main serving route
 
 
 @app.route('/', defaults={'path': ''})
@@ -163,6 +162,8 @@ def serve(path):
         return send_from_directory(app.static_folder, path)
     else:
         return send_from_directory(app.static_folder, 'index.html')
+
+# admin routes, mostly signup login and monitoring
 
 
 @app.route('/api/auth/register', methods=['POST'])
@@ -188,7 +189,8 @@ def register():
                                   'email': data['email'],
                                   'status': 'registered'})
 
-# this is the login route
+# this is a login route which return jwt and creds about the user
+# route type  : public
 
 
 @app.route('/api/auth/login', methods=['POST'])
@@ -204,11 +206,10 @@ def login_user():
         print(token)
         return make_response({'username': str(user_ent.username),
                               'email': str(user_ent.email), 'token': token, 'credit': int(user_ent.credit)})
+    else:
+        return make_response({'errmsg': "Incorrect password"})
 
     return make_response('could not verify',  401, {'Authentication': '"login required"'})
-
-# if an admin is signed up and logged in accessing
-# this route will show them  a list of all user
 
 
 @app.route('/api/admin/users', methods=['GET'])
@@ -227,8 +228,8 @@ def show_users(current_user):
     else:
         return make_response('could not verify admin',  401, {'Authentication': '"login required"'})
 
-# if an admin is signed up and logged in accessing
-# this route will show them  a list of all questions
+# this send the all the question available in the database
+# route type : private
 
 
 @app.route('/api/questions/all', methods=['GET'])
@@ -252,8 +253,10 @@ def show_questions(current_user):
         return make_response('could not verify admin',  401, {'Authentication': '"login required"'})
 
 # The question routes
-# This route is used to post a question
 
+
+# this route is used for adding the question
+#  route type : private
 
 @app.route('/api/question/add', methods=['POST'])
 @token_required
@@ -270,9 +273,10 @@ def addQuestion(current_user):
         db.session.commit()
         return make_response({"question": data['question'], "questionid": new_quest.id})
     else:
-        return make_response({"errmsg": "question should at least have 6 character"})
+        return make_response({"errmsg": "question should atleast have 6 character"})
 
-# this route is used to delete a question,form the user page in the frontend
+# this  route is used to delete the question only by the authour
+# route type : private
 
 
 @app.route('/api/question/delete', methods=['POST'])
@@ -289,14 +293,14 @@ def DeleteQuestion(current_user):
             else:
                 return make_response({'errmsg': 'you are not an author of this question'})
         else:
-            return make_response({'errmsg': 'question is not in existence'})
+            return make_response({'errmsg': 'question is not in exisistance'})
 
     else:
         return make_response({'errmsg': 'invalid request'})
 
-# this route is used to get a list of popular question whose popularity
-# sorting can be changed by chanhing the value of popularity_lim
-# this return a list of ten most popular questions in descending order
+
+#  this route will return the based on the  likes
+#  route type : private
 
 
 @app.route('/api/question/fquest', methods=['GET'])
@@ -313,8 +317,8 @@ def PopularQuestion():
         })
     return make_response({'popular_questions': output})
 
-# this route is used to search questions using the substring
-# provided in the search box and return a list of ten found questions
+# this route  is used to serch for the substring of the question
+# route type : private
 
 
 @app.route('/api/questions/search', methods=['POST'])
@@ -332,9 +336,10 @@ def FindQuestion():
         })
     return make_response({'results': output})
 
+
 # this route is used to find the most recently posted questions
 # and return a list of ten found questions
-
+# route type : private
 
 @app.route('/api/question/new', methods=['POST'])
 def recentQuestion():
@@ -349,6 +354,9 @@ def recentQuestion():
             'author': quest.author
         })
     return make_response({'results': output})
+
+# this  route will return the question created by the current user
+#  route type : private
 
 
 @app.route('/api/question/myquest', methods=['POST'])
@@ -368,7 +376,11 @@ def userQuestions(current_user):
 
 
 # the answers routes
+
+
+# the answers routes
 # this route is used to add an answer as the logged in user to the selected question
+
 @app.route('/api/answers/addanswer', methods=['POST'])
 @token_required
 def addAnswer(current_user):
@@ -382,9 +394,10 @@ def addAnswer(current_user):
         db.session.commit()
         return make_response({"answer_id": str(ans_id)})
     else:
-        return make_response({"errmsg": "answer should at least have 5 character"})
+        return make_response({"errmsg": "answer should atleast have 5 character"})
 
-# this route is used to get the answers for a given question useing the question id
+# this route is used to get the answers for a given question using the question id
+# route type : private
 
 
 @app.route('/api/answers/getanswers', methods=['POST'])
@@ -402,6 +415,9 @@ def getAnswer():
         })
     return make_response({'results': output})
 
+# likes routes
+
+
 # likes and dislikes routes
 # this routes processes the like and dislike event generated form the frontend
 # if a question is liked or disliked for the first time by a user then it adds
@@ -410,6 +426,7 @@ def getAnswer():
 # if the user has not interacted with a question then both liked and disliked are unset
 # as such are countted as zero, after thefirst interaction they are tacked.
 
+# route type : private
 
 @app.route('/api/question/res', methods=['POST'])
 @token_required
