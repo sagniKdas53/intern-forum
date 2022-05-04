@@ -1,0 +1,119 @@
+/* Group Number : GROUP10 
+Topic Of The Project : Forum (quried)
+Mentor - Sunil Kumar Aralimara Channappa 
+Team Members : 
+Siva A                       
+Prabu K      
+Joshva A                                             
+Sree Bhavana Kasturi
+Sagnik Das
+Shiva Ganesh M
+Tirupathi Reddy Devagiri
+Neetha Jyothi Simhadri
+Ashwin Mahendra Gawande
+Shruti Govindalwar */
+
+/* Stylesheet Description : this is common style file shared by all components */
+
+
+
+
+
+.Cbgc001{
+  background-color: rgb(35, 34, 36);
+}
+
+.Cc001{
+    color: rgb(35, 34, 36);
+}
+.Cbgc002{
+    background-color: #2C2F33;
+    
+}
+.Cc002{
+    color: #2C2F33;
+
+}
+.Cbgc003 {
+    background-color:rgb(163, 156, 156) ;
+}
+.Cc003{
+    color: rgb(163, 156, 156);
+}
+
+.Ccw{
+    color: #ffff;
+}
+
+.Cbgcw{
+    background-color: #ffff;
+}
+
+.Ccb{
+    color: #000000;
+}
+.Cbgcb{
+    background-color: #000000;
+}
+
+
+.Cc004{
+ color: #909bc9;
+}
+.Cbgc004{
+    background-color: #909bc9;
+}
+.Ccp2{
+    color: #3e3e3e;
+}
+.Cbgcp2{
+    background-color: #3e3e3e;
+}
+.Ccs2{
+    color: #46405e;
+}
+.Cbgcs2{
+    background-color: #484261 ;
+}
+
+.Cc005
+{
+ color: #75777c;
+}
+.Cbgc005{
+    background-color: #dad4d4;
+}
+
+.Cc2{
+    color: #142645;
+}
+.Cbgc2{
+    background-color: #142645;
+}
+
+.Cc3{
+    color: #8d95a4;
+}
+.Cbgc3{
+    background-color: #8d95a4;
+}
+
+.Cc4{
+    color: #804a3a;
+}
+.Cbgc4{
+    background-color: #804a3a;
+}
+
+
+
+.Cca{
+    color: #339040;
+}
+.Cbgca{
+    background-color: #339040;
+}
+
+.Ctestbgc{
+    background-color: rgb(0, 255, 0);
+}

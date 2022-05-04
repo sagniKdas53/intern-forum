@@ -1,0 +1,96 @@
+/* Group Number : GROUP10 
+Topic Of The Project : Forum (quried)
+Mentor - Sunil Kumar Aralimara Channappa 
+Team Members : 
+Siva A                       
+Prabu K      
+Joshva A                                             
+Sree Bhavana Kasturi
+Sagnik Das
+Shiva Ganesh M
+Tirupathi Reddy Devagiri
+Neetha Jyothi Simhadri
+Ashwin Mahendra Gawande
+Shruti Govindalwar */
+
+/* Stylesheet Description : this is common style file shared by all components */
+
+
+
+
+
+
+.btnsmall{
+    padding: 3px 5px;
+    background-color:rgba(0,0,0,0.7);
+    border: 0px;
+    border-radius: 2px;
+    color: #ffffff;
+}
+
+.btnmiddanger{
+    padding: 6px 15px;
+    background-color: rgb(252, 61, 61);
+    border: none;
+    border-radius: 3px;
+    color: #fff;
+    font-size: 15px;
+    
+}
+
+.btnmidedit{
+    padding: 8px 20px;
+    background-color: rgb(97, 112, 197);
+    border: none;
+    border-radius: 3px;
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    font-weight: bold;
+}
+.btnmidsave{
+    padding: 8px 20px;
+    background-color: rgb(1, 153, 39);
+    border: none;
+    border-radius: 3px;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: bold;
+}
+.btnmidcancel{
+    border: none;
+    border-radius: 3px;
+    background: none;
+    color: #8f847d8e;
+    font-size: 15px;
+
+}
+
+.btnround{
+    width: 35px;
+    height: 25px;
+    padding: 4px;
+    border-radius: 4px;
+    background: linear-gradient(to right, rgb(97, 112, 197) 0%, rgb(90, 156, 110)  51%, rgb(224, 224, 224)  100%) ;
+    color: #ffffff;
+    border: none;
+    margin: 4px;
+}
+
+.roundbtn:active{
+    background: #0d6e41 ;
+}
+
+.btnmiddanger:active{
+    background-color: rgb(255, 255, 255);
+} 
+
+.btnmidsave:active{
+    background-color: rgb(255, 255, 255);
+
+
+}
+
+.btnmidedit:active{
+    background-color: rgb(255, 255, 255);
+} 
+

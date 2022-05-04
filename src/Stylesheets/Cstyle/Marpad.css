@@ -1,0 +1,124 @@
+/* Group Number : GROUP10 
+Topic Of The Project : Forum (quried)
+Mentor - Sunil Kumar Aralimara Channappa 
+Team Members : 
+Siva A                       
+Prabu K      
+Joshva A                                             
+Sree Bhavana Kasturi
+Sagnik Das
+Shiva Ganesh M
+Tirupathi Reddy Devagiri
+Neetha Jyothi Simhadri
+Ashwin Mahendra Gawande
+Shruti Govindalwar */
+
+/* Stylesheet Description : this is common style file shared by all components */
+
+
+
+.Cmar{
+    margin: 10px;
+}
+.Cmarx{
+    margin: 15px;
+}
+.Cmary{
+    margin: 5px;
+}
+
+.Cmar-t{
+    margin-top: 10px;
+}
+.Cmar-tx{
+    margin-top: 15px;
+}
+.Cmar-ty{
+    margin-top: 5px;
+}
+
+.Cmar-r{
+    margin-right: 10px ;
+}
+.Cmar-rx{
+    margin-right: 15px ;
+}
+.Cmar-ry{
+    margin-right: 5px;
+}
+
+.Cmar-b{
+    margin-bottom: 10px;
+}
+.Cmar-bx{
+    margin-bottom: 15px;
+}
+.Cmar-by{
+    margin-bottom: 5px ;
+}
+
+.Cmar-l{
+    margin-left: 10px;
+}
+.Cmar-lx{
+    margin-left: 15px;
+}
+.Cmar-ly{
+    margin-left: 5px;
+}
+
+
+.Cpad{
+    padding: 10px;
+}
+.Cpadx{
+    padding: 15px;
+}
+.Cpady{
+    padding: 5px;
+}
+
+.Cpad-t{
+    padding-top: 10px;
+}
+.Cpad-tx{
+    padding-top: 15px;
+}
+.Cpad-ty{
+    padding-top: 5px;
+}
+
+.Cpad-r{
+    padding-right: 10px ;
+}
+.Cpad-rx{
+    padding-right: 15px ;
+}
+.Cpad-ry{
+    padding-right: 5px;
+}
+
+.Cpad-b{
+    padding-bottom: 10px;
+}
+.Cpad-bx{
+    padding-bottom: 15px;
+}
+.Cpad-by{
+    padding-bottom: 5px ;
+}
+
+.Cpad-l{
+    padding-left: 10px;
+}
+.Cpad-lx{
+    padding-left: 15px;
+}
+.Cpad-ly{
+    padding-left: 5px;
+}
+
+
+.identifier p{
+    font-size: 12px;
+}

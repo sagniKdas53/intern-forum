@@ -1,0 +1,35 @@
+/* Group Number : GROUP10 
+Topic Of The Project : Forum (quried)
+Mentor - Sunil Kumar Aralimara Channappa 
+Team Members : 
+Siva A                       
+Prabu K      
+Joshva A                                             
+Sree Bhavana Kasturi
+Sagnik Das
+Shiva Ganesh M
+Tirupathi Reddy Devagiri
+Neetha Jyothi Simhadri
+Ashwin Mahendra Gawande
+Shruti Govindalwar */
+
+/* Stylesheet Description : this is common style file shared by all components */
+
+.Cbrad{
+    border-radius: 10px;
+}
+.Cbradx{
+    border-radius: 15px;
+}
+.Cbrady{
+    border-radius: 5px;
+}
+.Cbs1b{
+    border: 1px solid #000000 ;
+}
+.Cbs2c1-r{
+    border-right: 2px solid #515668;
+}
+.Cc-p{
+    cursor: pointer;
+}
