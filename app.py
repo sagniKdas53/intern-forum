@@ -18,7 +18,6 @@ Shruti Govindalwar
 
 import datetime
 import os
-import secrets
 import uuid
 from functools import wraps
 
@@ -33,7 +32,7 @@ popularity_lim = 1
 # the flask app is initialized here as the configurations are set
 app = Flask(__name__, static_folder='build')
 app.config['SQLALCHEMY_DATABASE_URI'] = os.environ['URI']
-app.config['SECRET_KEY'] = secrets.token_hex(15)
+app.config['SECRET_KEY'] = os.environ['SECRET']
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = True
 db = SQLAlchemy(app)
 cors = CORS(app, resources={r"/*": {"origins": "*"}})
