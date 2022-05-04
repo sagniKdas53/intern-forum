@@ -50,7 +50,7 @@ class user_db(db.Model):
 
     def __repr__(self):
         return f'User Name: {self.username}\nEmail: {self.email}\
-            \nAdmin: {bool(self.admin)}\nCredit: {bool(self.credit)}'
+            \nAdmin: {bool(self.admin)}\nCredit: {self.credit}'
 
     def __init__(self, id, name, email, username, password, credit=0, admin=False):
         self.username = username
@@ -205,8 +205,6 @@ def login_user():
                               'email': str(user_ent.email), 'token': token, 'credit': int(user_ent.credit)})
     else:
         return make_response({'errmsg': "Incorrect password"})
-
-    return make_response('could not verify',  401, {'Authentication': '"login required"'})
 
 
 @app.route('/api/admin/users', methods=['GET'])
